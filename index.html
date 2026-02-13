@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Case of Knights of the Old (KNP)</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- ============ INTRO SCREEN ============ -->
+  <div id="intro-screen">
+    <div class="intro-content">
+      <h1>The Case of Knights of the Old</h1>
+      <p class="intro-tagline">How one small mistake took down a 158-year-old business</p>
+      <p class="intro-description">
+        Investigate the wall. Click the clues. Uncover what went wrong — 
+        and learn how to protect yourself from cyber threats.
+      </p>
+      <button id="start-btn">Begin Investigation</button>
+    </div>
+  </div>
+
+  <!-- ============ MAIN WALL ============ -->
+  <div id="wall-scene" class="hidden">
+    <div id="wall-container">
+      <!-- Clickable items are injected here by wall.js -->
+    </div>
+  </div>
+
+  <!-- ============ MODAL OVERLAY ============ -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal-box">
+      <button id="modal-close">&times;</button>
+      <div id="modal-content">
+        <!-- Mini-game content is injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

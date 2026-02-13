@@ -1,0 +1,441 @@
+/* ==============================================================
+   dark-web.css — Immersive dark web marketplace & forum styles
+   ============================================================== */
+
+/* ── Browser Chrome ────────────────────────────────────────── */
+
+.dw-browser {
+  font-family: 'Courier New', 'Consolas', monospace;
+  background: #0a0a0a;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 70vh;
+}
+
+.dw-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2d1f4e;
+  padding: 8px 14px;
+  gap: 12px;
+}
+
+.dw-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 5px 12px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.dw-onion-icon {
+  font-size: 1rem;
+}
+
+.dw-url {
+  color: #8bc34a;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.dw-toolbar-text {
+  color: #9575cd;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+
+.dw-header {
+  text-align: center;
+  padding: 24px 16px 16px;
+  border-bottom: 1px solid #1a1a1a;
+  background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
+}
+
+.dw-title {
+  font-size: 2rem;
+  color: #8bc34a;
+  text-shadow: 0 0 20px rgba(139, 195, 74, 0.3);
+  margin: 0 0 4px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.08em;
+}
+
+.dw-subtitle {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.dw-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* ── Tabs ──────────────────────────────────────────────────── */
+
+.dw-tabs {
+  display: flex;
+  background: #111;
+  border-bottom: 1px solid #222;
+}
+
+.dw-tab {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #777;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dw-tab:hover {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dw-tab.active {
+  color: #8bc34a;
+  border-bottom-color: #8bc34a;
+  background: rgba(139, 195, 74, 0.05);
+}
+
+.dw-tab-content {
+  padding: 16px;
+}
+
+.dw-tab-content.hidden {
+  display: none;
+}
+
+/* ── Educational Banner ────────────────────────────────────── */
+
+.dw-edu-banner {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(255, 152, 0, 0.08);
+  border: 1px solid rgba(255, 152, 0, 0.25);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.dw-edu-banner strong {
+  color: #ffb74d;
+}
+
+.dw-edu-banner em {
+  color: #ff8a65;
+}
+
+.dw-edu-icon {
+  font-size: 1.4rem;
+  margin-top: 2px;
+}
+
+/* ── Category Navigation ───────────────────────────────────── */
+
+.dw-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.dw-cat-btn {
+  padding: 7px 14px;
+  font-size: 0.78rem;
+  font-family: 'Courier New', monospace;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dw-cat-btn:hover {
+  border-color: #555;
+  color: #ccc;
+}
+
+.dw-cat-btn.active {
+  background: rgba(139, 195, 74, 0.1);
+  border-color: #8bc34a;
+  color: #8bc34a;
+}
+
+/* ── Store Listings ────────────────────────────────────────── */
+
+.dw-listings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dw-listing {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 14px 16px;
+  transition: border-color 0.15s ease;
+}
+
+.dw-listing:hover {
+  border-color: #3a3a3a;
+}
+
+.dw-listing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.dw-listing-title {
+  color: #8bc34a;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.dw-listing-price {
+  color: #ff9800;
+  font-weight: bold;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.dw-listing-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.72rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.dw-listing-meta strong {
+  color: #aaa;
+}
+
+.dw-listing-desc {
+  color: #999;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.dw-buy-btn {
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+  background: rgba(139, 195, 74, 0.1);
+  border: 1px solid rgba(139, 195, 74, 0.3);
+  border-radius: 4px;
+  color: #8bc34a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dw-buy-btn:hover:not(:disabled) {
+  background: rgba(139, 195, 74, 0.2);
+  border-color: #8bc34a;
+}
+
+.dw-buy-btn:disabled,
+.dw-buy-clicked {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: rgba(255, 152, 0, 0.3);
+  color: #ffb74d;
+  cursor: default;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.78rem;
+}
+
+/* ── Forum ─────────────────────────────────────────────────── */
+
+.dw-forum-header {
+  margin-bottom: 16px;
+}
+
+.dw-forum-header h2 {
+  color: #8bc34a !important;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  margin: 0 0 4px;
+}
+
+.dw-forum-desc {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.dw-threads {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dw-thread {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 14px 16px;
+  transition: border-color 0.15s ease;
+}
+
+.dw-thread:hover {
+  border-color: #333;
+}
+
+.dw-thread-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.dw-pin {
+  font-size: 0.7rem;
+  background: rgba(244, 67, 54, 0.15);
+  color: #ef5350;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dw-thread-title {
+  color: #8bc34a;
+  font-size: 0.95rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.dw-thread-date {
+  color: #666;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.dw-thread-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.72rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.dw-thread-meta strong {
+  color: #aaa;
+}
+
+.dw-thread-preview {
+  color: #999;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.dw-expand-btn {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dw-expand-btn:hover {
+  border-color: #555;
+  color: #ccc;
+}
+
+/* ── Comments ──────────────────────────────────────────────── */
+
+.dw-thread-comments {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dw-thread-comments.hidden {
+  display: none;
+}
+
+.dw-comment {
+  background: #0d0d0d;
+  border-left: 3px solid #333;
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+}
+
+.dw-comment-author {
+  color: #7e57c2;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.dw-comment-text {
+  color: #aaa;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .dw-title {
+    font-size: 1.4rem;
+  }
+  .dw-stats {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .dw-listing-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .dw-category-nav {
+    gap: 4px;
+  }
+  .dw-cat-btn {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+}

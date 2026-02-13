@@ -1,0 +1,13 @@
+{
+  "name": "knp-mystery-wall",
+  "version": "1.0.0",
+  "description": "The Case of Knights of the Old (KNP) — A Cyber Awareness Mystery Game",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
