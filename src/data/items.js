@@ -12,21 +12,21 @@ export const items = [
   {
     id: 'facebook',
     label: 'Facebook',
-    image: '/images/items/facebook.png',
+    image: '/images/items/facebook.jpg',
     x: '12%',
     y: '25%',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    image: '/images/items/linkedin.png',
+    image: '/images/items/linkedin.jpg',
     x: '28%',
     y: '30%',
   },
   {
     id: 'password-hygiene',
     label: 'Password Hygiene',
-    image: '/images/items/password-hygiene.png',
+    image: '/images/items/password.jpg',
     x: '42%',
     y: '22%',
   },
@@ -57,5 +57,12 @@ export const items = [
     image: '/images/items/phishing.png',
     x: '80%',
     y: '68%',
+  },
+  {
+    id: 'ransomware',
+    label: 'Ransomware',
+    image: '/images/items/ransomware.png',
+    x: '58%',
+    y: '30%',
   },
 ];

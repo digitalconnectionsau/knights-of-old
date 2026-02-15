@@ -6,8 +6,8 @@ import { items } from '../data/items.js';
 import { openModal } from '../modal/modal.js';
 
 /**
- * Initialise the wall: create a clickable element for each item
- * and attach it to #wall-container.
+ * Initialise the wall: create a clickable/draggable element for
+ * each item and attach it to #wall-container.
  */
 export function initWall() {
   const container = document.getElementById('wall-container');
@@ -20,6 +20,7 @@ export function initWall() {
     el.className = 'wall-item';
     el.dataset.id = item.id;
     el.setAttribute('aria-label', item.label);
+    el.draggable = true;                       // ← make draggable
 
     // Position via CSS custom properties (percentage-based)
     el.style.setProperty('--x', item.x);
@@ -37,8 +38,26 @@ export function initWall() {
     label.textContent = item.label;
     el.appendChild(label);
 
-    // Click → open mini-game
-    el.addEventListener('click', () => openModal(item));
+    // ── Drag behaviour ────────────────────────────────────
+    el.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', item.id);
+      e.dataTransfer.effectAllowed = 'copy';
+      el.classList.add('wall-item--dragging');
+    });
+
+    el.addEventListener('dragend', () => {
+      el.classList.remove('wall-item--dragging');
+    });
+
+    // ── Click → open mini-game (only if not mid-drag) ─────
+    let wasDragging = false;
+
+    el.addEventListener('mousedown', () => { wasDragging = false; });
+    el.addEventListener('mousemove', () => { wasDragging = true; });
+    el.addEventListener('click', (e) => {
+      if (wasDragging) { e.preventDefault(); return; }
+      openModal(item);
+    });
 
     container.appendChild(el);
   });

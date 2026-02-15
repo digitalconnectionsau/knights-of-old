@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>The Case of Knights of the Old (KNP)</title>
   <link rel="stylesheet" href="/src/style.css" />
 </head>
@@ -23,6 +24,27 @@
 
   <!-- ============ MAIN WALL ============ -->
   <div id="wall-scene" class="hidden">
+
+    <!-- Collapsible detective sidebar (timeline drop zone) -->
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h2>Timeline</h2>
+        <p class="sidebar-hint">Drag clues from the wall to build the sequence of events.</p>
+      </div>
+      <div id="sidebar-dropzone">
+        <div id="sidebar-list">
+          <!-- Timeline cards injected by sidebar.js -->
+        </div>
+        <div class="dropzone-empty">Drop a clue here&hellip;</div>
+      </div>
+    </aside>
+
+    <!-- Toggle tab for the sidebar -->
+    <button id="sidebar-toggle" title="Toggle timeline">&laquo;</button>
+
+    <!-- SVG overlay for red pin-board lines -->
+    <svg id="wall-lines"></svg>
+
     <div id="wall-container">
       <!-- Clickable items are injected here by wall.js -->
     </div>

@@ -14,6 +14,7 @@ import { buildDarkWebGame } from './dark-web.js';
 import { buildDataBackupsGame } from './data-backups.js';
 import { buildPublicWifiGame } from './public-wifi.js';
 import { buildPhishingGame } from './phishing.js';
+import { buildRansomwareGame } from './ransomware.js';
 
 export const gameRegistry = {
   'facebook': buildFacebookGame,
@@ -23,4 +24,5 @@ export const gameRegistry = {
   'data-backups': buildDataBackupsGame,
   'public-wifi': buildPublicWifiGame,
   'phishing': buildPhishingGame,
+  'ransomware': buildRansomwareGame,
 };

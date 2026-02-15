@@ -64,3 +64,17 @@
   text-align: center;
   pointer-events: none;
 }
+
+/* ---- Drag state ---- */
+
+.wall-item--dragging {
+  opacity: 0.4;
+  box-shadow: 0 0 24px rgba(220, 40, 40, 0.6);
+  border-color: rgba(220, 40, 40, 0.8);
+}
+
+/* Items already in the timeline get a subtle red glow */
+.wall-item--in-timeline {
+  box-shadow: 0 0 12px rgba(200, 50, 50, 0.45);
+  border-color: rgba(200, 50, 50, 0.55);
+}

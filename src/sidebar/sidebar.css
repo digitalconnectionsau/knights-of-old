@@ -1,0 +1,286 @@
+/* ==============================================================
+   sidebar.css — Collapsible investigation timeline sidebar
+   ============================================================== */
+
+/* ── Sidebar Container ─────────────────────────────────────── */
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgba(12, 12, 28, 0.95);
+  border-right: 2px solid rgba(0, 180, 255, 0.4);
+  backdrop-filter: blur(12px);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-300px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+}
+
+#sidebar.sidebar--open {
+  transform: translateX(0);
+}
+
+/* ── Toggle Button ─────────────────────────────────────────── */
+
+#sidebar-toggle {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 81;
+  width: 32px;
+  height: 80px;
+  background: rgba(0, 119, 182, 0.85);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.2s;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#sidebar-toggle:hover {
+  background: rgba(0, 180, 255, 0.95);
+}
+
+#sidebar.sidebar--open ~ #sidebar-toggle {
+  left: 300px;
+}
+
+/* ── Sidebar Header ────────────────────────────────────────── */
+
+.sidebar-header {
+  padding: 20px 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-header h2 {
+  color: #00b4ff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+}
+
+.sidebar-hint {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.sidebar-title {
+  color: #e74c3c;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+}
+
+.sidebar-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Drop Zone ─────────────────────────────────────────────── */
+
+#sidebar-dropzone {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  transition: background 0.2s;
+}
+
+#sidebar-dropzone.sidebar-dropzone--over {
+  background: rgba(220, 40, 40, 0.1);
+  outline: 2px dashed rgba(220, 40, 40, 0.5);
+  outline-offset: -8px;
+  border-radius: 8px;
+}
+
+/* ── Empty State ───────────────────────────────────────────── */
+
+.dropzone-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 16px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.sidebar-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 16px;
+  gap: 12px;
+}
+
+.sidebar-empty span {
+  font-size: 40px;
+}
+
+.sidebar-empty p {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Timeline Cards ────────────────────────────────────────── */
+
+#sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: grab;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  position: relative;
+}
+
+.sidebar-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(220, 40, 40, 0.4);
+}
+
+.sidebar-card--dragging {
+  opacity: 0.35;
+}
+
+.sidebar-card--over {
+  border-color: #e74c3c;
+  background: rgba(220, 40, 40, 0.15);
+}
+
+.sidebar-card-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebar-card-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.sidebar-card-label {
+  flex: 1;
+  color: #f0f0f0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sidebar-card-remove {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sidebar-card-remove:hover {
+  color: #e74c3c;
+  background: rgba(220, 40, 40, 0.15);
+}
+
+/* ── Connector line between cards ──────────────────────────── */
+
+.sidebar-card + .sidebar-card::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 23px; /* centre of the number circle */
+  width: 2px;
+  height: 8px;
+  background: rgba(220, 40, 40, 0.5);
+}
+
+/* ── SVG Lines Overlay (wall pin-board strings) ────────────── */
+
+#wall-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.pin-line {
+  stroke: #e74c3c;
+  stroke-width: 2.5;
+  stroke-dasharray: 8, 6;
+  stroke-linecap: round;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 4px rgba(220, 40, 40, 0.5));
+}
+
+.pin-dot {
+  fill: #e74c3c;
+  stroke: #fff;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 3px rgba(220, 40, 40, 0.6));
+}
+
+.pin-num {
+  fill: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* ── Drag ghost on wall items ──────────────────────────────── */
+
+.wall-item[draggable="true"] {
+  cursor: grab;
+}
+
+.wall-item.wall-item--dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}

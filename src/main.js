@@ -9,10 +9,13 @@ import './modal/modal.css';
 import './games/dark-web.css';
 import './games/facebook.css';
 import './games/linkedin.css';
+import './sidebar/sidebar.css';
 
 // Modules
-import { initWall } from './wall/wall.js';
-import { initModal } from './modal/modal.js';
+import { initWall }    from './wall/wall.js';
+import { initModal }   from './modal/modal.js';
+import { initSidebar } from './sidebar/sidebar.js';
+import { initLines }   from './wall/lines.js';
 
 // ---- Boot ----
 
@@ -30,4 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialise core systems
   initWall();
   initModal();
+  initSidebar();
+  initLines();
 });
