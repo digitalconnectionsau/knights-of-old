@@ -1,0 +1,386 @@
+/* ==============================================================
+   data-backups.css — Memory Card Matching Game
+   ============================================================== */
+
+/* ── Layout ──────────────────────────────────────────────────── */
+
+.db-game {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  gap: 0;
+}
+
+/* ── Top Instructions Bar ────────────────────────────────────── */
+
+.db-instructions {
+  background: linear-gradient(135deg, #0d2137 0%, #1a1a2e 100%);
+  border-bottom: 1px solid rgba(0, 180, 255, 0.25);
+  padding: 14px 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.db-instructions h2 {
+  font-size: 1.2rem;
+  color: #00b4ff;
+  margin: 0 0 4px;
+}
+
+.db-instructions p {
+  font-size: 0.85rem;
+  color: #aab;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.db-score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.db-score-bar span {
+  color: #ccc;
+}
+
+.db-score-bar .score-val {
+  color: #00b4ff;
+  font-weight: 700;
+}
+
+.db-score-bar .matches-val {
+  color: #00e676;
+  font-weight: 700;
+}
+
+/* ── Board Area (left + right) ───────────────────────────────── */
+
+.db-board {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  padding: 12px;
+  min-height: 0;
+}
+
+/* Left panel — player's cards */
+.db-left {
+  flex: 0 0 28%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.db-left-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.db-left-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+
+/* Right panel — the 4×4 grid */
+.db-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.db-right-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.db-right-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+
+/* ── Card (shared) ───────────────────────────────────────────── */
+
+.db-card {
+  perspective: 800px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.db-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.db-card.flipped .db-card-inner {
+  transform: rotateY(180deg);
+}
+
+.db-card-face,
+.db-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid rgba(0, 180, 255, 0.2);
+}
+
+/* Back of card (visible when face-down) */
+.db-card-back {
+  background: linear-gradient(135deg, #1a2540 0%, #0d1b2a 100%);
+  border-color: rgba(0, 180, 255, 0.3);
+}
+
+.db-card-back::after {
+  content: '?';
+  font-size: 1.8rem;
+  color: rgba(0, 180, 255, 0.35);
+  font-weight: 700;
+}
+
+/* Left card back marker */
+.db-left .db-card-back {
+  background: linear-gradient(135deg, #1e2d1e 0%, #0d1b0d 100%);
+  border-color: rgba(0, 230, 118, 0.3);
+}
+
+.db-left .db-card-back::after {
+  color: rgba(0, 230, 118, 0.35);
+}
+
+/* Front of card (visible when flipped) */
+.db-card-face {
+  background: linear-gradient(135deg, #162447 0%, #1a1a2e 100%);
+  transform: rotateY(180deg);
+  gap: 4px;
+}
+
+.db-card-icon {
+  font-size: 1.5rem;
+}
+
+.db-card-dept {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #00b4ff;
+  line-height: 1.2;
+}
+
+.db-card-file {
+  font-size: 0.7rem;
+  color: #9aa;
+  line-height: 1.3;
+}
+
+/* ── Blocker card face ───────────────────────────────────────── */
+
+.db-card.blocker .db-card-face {
+  background: linear-gradient(135deg, #3a1c1c 0%, #2a0d0d 100%);
+  border-color: rgba(255, 80, 80, 0.4);
+}
+
+.db-card.blocker .db-card-dept {
+  color: #ff6b6b;
+}
+
+.db-card.blocker .db-card-file {
+  color: #cc8888;
+}
+
+/* ── Card states ─────────────────────────────────────────────── */
+
+/* Matched cards */
+.db-card.matched .db-card-face {
+  background: linear-gradient(135deg, #0d3320 0%, #0a2618 100%);
+  border-color: rgba(0, 230, 118, 0.5);
+  box-shadow: 0 0 12px rgba(0, 230, 118, 0.15);
+}
+
+.db-card.matched {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Wrong flash */
+.db-card.wrong .db-card-face {
+  animation: db-shake 0.4s ease;
+  border-color: rgba(255, 80, 80, 0.7);
+  box-shadow: 0 0 12px rgba(255, 60, 60, 0.3);
+}
+
+@keyframes db-shake {
+  0%, 100% { transform: rotateY(180deg) translateX(0); }
+  20%      { transform: rotateY(180deg) translateX(-6px); }
+  40%      { transform: rotateY(180deg) translateX(6px); }
+  60%      { transform: rotateY(180deg) translateX(-4px); }
+  80%      { transform: rotateY(180deg) translateX(4px); }
+}
+
+/* Blocker penalty flash */
+.db-card.penalty .db-card-face {
+  animation: db-penalty-flash 0.5s ease;
+}
+
+@keyframes db-penalty-flash {
+  0%, 100% { box-shadow: none; }
+  50%      { box-shadow: 0 0 20px rgba(255, 60, 60, 0.6); }
+}
+
+/* Disabled during animations */
+.db-card.disabled {
+  pointer-events: none;
+}
+
+/* Peek phase — cards briefly visible */
+.db-card.peeking .db-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ── Countdown overlay ───────────────────────────────────────── */
+
+.db-countdown {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.db-countdown span {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #00b4ff;
+  text-shadow: 0 0 30px rgba(0, 180, 255, 0.5);
+  animation: db-pulse 1s ease infinite;
+}
+
+@keyframes db-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.15); opacity: 0.7; }
+}
+
+/* ── Win / End Screen ────────────────────────────────────────── */
+
+.db-end-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  gap: 16px;
+}
+
+.db-end-screen h2 {
+  font-size: 1.8rem;
+  color: #00e676;
+  margin: 0;
+}
+
+.db-end-score {
+  font-size: 1.3rem;
+  color: #00b4ff;
+  font-weight: 700;
+}
+
+.db-end-screen .db-lesson {
+  max-width: 520px;
+  background: rgba(0, 180, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px 22px;
+  color: #c0d0e0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.db-end-screen .db-lesson strong {
+  color: #00b4ff;
+}
+
+.db-end-screen .db-play-again {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #00b4ff, #0077b6);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.db-end-screen .db-play-again:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+}
+
+/* ── Status message (e.g. "Memorise the cards!") ─────────────── */
+
+.db-status {
+  background: rgba(0, 180, 255, 0.12);
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: #7cc8f0;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+}
+
+.db-status.warning {
+  background: rgba(255, 80, 80, 0.12);
+  border-color: rgba(255, 80, 80, 0.3);
+  color: #ff9090;
+}
+
+.db-status.success {
+  background: rgba(0, 230, 118, 0.12);
+  border-color: rgba(0, 230, 118, 0.3);
+  color: #80e0a0;
+}
+
+/* ── Divider between left and right ──────────────────────────── */
+
+.db-divider {
+  width: 1px;
+  background: rgba(0, 180, 255, 0.15);
+  align-self: stretch;
+}
+
+/* ── Selected left card highlight ────────────────────────────── */
+
+.db-card.selected .db-card-face {
+  border-color: rgba(0, 230, 118, 0.7);
+  box-shadow: 0 0 14px rgba(0, 230, 118, 0.25);
+}

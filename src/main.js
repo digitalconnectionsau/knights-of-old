@@ -9,6 +9,9 @@ import './modal/modal.css';
 import './games/dark-web.css';
 import './games/facebook.css';
 import './games/linkedin.css';
+import './games/data-backups.css';
+import './games/local-network.css';
+import './games/phishing.css';
 import './sidebar/sidebar.css';
 
 // Modules

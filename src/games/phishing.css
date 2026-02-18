@@ -1,0 +1,697 @@
+/* ==============================================================
+   phishing.css — Phishing Wizard Email Builder Game
+   ============================================================== */
+
+/* ── Game layout ─────────────────────────────────────────────── */
+
+.ph-game {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  gap: 0;
+  position: relative;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────── */
+
+.ph-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1a0d2e 0%, #1a1a2e 100%);
+  border-bottom: 1px solid rgba(180, 0, 255, 0.25);
+  padding: 10px 16px;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.ph-top-bar h2 {
+  font-size: 1.05rem;
+  color: #c77dff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ph-top-bar .ph-objective {
+  font-size: 0.78rem;
+  color: #aab;
+  text-align: center;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.ph-help-btn {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(180, 0, 255, 0.12);
+  border: 1px solid rgba(180, 0, 255, 0.3);
+  border-radius: 6px;
+  color: #c77dff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.ph-help-btn:hover {
+  background: rgba(180, 0, 255, 0.22);
+  border-color: rgba(180, 0, 255, 0.5);
+}
+
+/* ── Board (left + right) ────────────────────────────────────── */
+
+.ph-board {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Left panel ──────────────────────────────────────────────── */
+
+.ph-left {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(180, 0, 255, 0.15);
+  padding: 10px;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.ph-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin: 2px 0;
+}
+
+/* Effectiveness meter */
+
+.ph-meter-wrap {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(180, 0, 255, 0.2);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.ph-meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #aab;
+  margin-bottom: 6px;
+}
+
+.ph-meter-val {
+  color: #c77dff;
+  font-weight: 700;
+}
+
+.ph-meter-bar {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ph-meter-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+  transition: width 0.5s ease, background 0.5s ease;
+  background: linear-gradient(90deg, #ff4444, #ff8800);
+}
+
+.ph-meter-fill.med {
+  background: linear-gradient(90deg, #ff8800, #ffcc00);
+}
+
+.ph-meter-fill.high {
+  background: linear-gradient(90deg, #ffcc00, #00e676);
+}
+
+/* Target section */
+
+.ph-target-wrap {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(180, 0, 255, 0.15);
+  border-radius: 6px;
+  padding: 8px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.ph-target-selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  background: rgba(180, 0, 255, 0.1);
+  border: 1px solid rgba(180, 0, 255, 0.3);
+  font-size: 0.78rem;
+  color: #c77dff;
+  min-height: 32px;
+}
+
+.ph-target-selected .ph-no-target {
+  color: #777;
+  font-style: italic;
+}
+
+.ph-dir-search {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(180, 0, 255, 0.2);
+  border-radius: 4px;
+  color: #d0d0e0;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+.ph-dir-search:focus {
+  border-color: rgba(180, 0, 255, 0.5);
+}
+
+.ph-dir-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ph-dir-person {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.72rem;
+  color: #b0b8c0;
+}
+
+.ph-dir-person:hover {
+  background: rgba(180, 0, 255, 0.08);
+  border-color: rgba(180, 0, 255, 0.25);
+}
+
+.ph-dir-person.selected {
+  background: rgba(180, 0, 255, 0.15);
+  border-color: rgba(180, 0, 255, 0.4);
+  color: #d0d0e0;
+}
+
+.ph-dir-person .ph-dir-name {
+  font-weight: 700;
+  color: #c0c8d0;
+  min-width: 80px;
+}
+
+.ph-dir-person .ph-dir-role {
+  color: #889;
+  flex: 1;
+}
+
+.ph-dir-person .ph-dir-hint {
+  font-size: 0.65rem;
+  color: #667;
+  font-style: italic;
+}
+
+/* Send / actions */
+
+.ph-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ph-send-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: linear-gradient(135deg, #c77dff, #8a2be2);
+  color: #fff;
+}
+
+.ph-send-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 16px rgba(180, 0, 255, 0.3);
+}
+
+.ph-send-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.ph-reset-btn {
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 180, 0, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 180, 0, 0.1);
+  color: #f0c050;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ph-reset-btn:hover {
+  background: rgba(255, 180, 0, 0.2);
+  border-color: rgba(255, 180, 0, 0.5);
+}
+
+/* ── Right panel ─────────────────────────────────────────────── */
+
+.ph-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+/* ── Email preview ───────────────────────────────────────────── */
+
+.ph-email {
+  background: #111118;
+  border: 1px solid rgba(180, 0, 255, 0.2);
+  border-radius: 8px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ph-email-header {
+  padding: 10px 14px;
+  background: rgba(180, 0, 255, 0.06);
+  border-bottom: 1px solid rgba(180, 0, 255, 0.12);
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ph-email-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+
+.ph-email-row .ph-field-label {
+  color: #667;
+  min-width: 55px;
+  font-weight: 600;
+}
+
+.ph-email-body {
+  padding: 14px;
+  min-height: 70px;
+}
+
+/* ── Drop zones ──────────────────────────────────────────────── */
+
+.ph-drop-zone {
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px dashed rgba(180, 0, 255, 0.25);
+  border-radius: 4px;
+  color: #556;
+  font-size: 0.78rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.ph-drop-zone.drag-over {
+  border-color: rgba(180, 0, 255, 0.7);
+  background: rgba(180, 0, 255, 0.1);
+  box-shadow: 0 0 8px rgba(180, 0, 255, 0.15);
+}
+
+.ph-drop-zone.filled {
+  border-style: solid;
+  border-color: rgba(180, 0, 255, 0.3);
+  color: #d0d0e0;
+  font-style: normal;
+  background: rgba(180, 0, 255, 0.05);
+}
+
+.ph-drop-zone .ph-zone-clear {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0 0 0 8px;
+  line-height: 1;
+}
+
+/* ── Draggable options ───────────────────────────────────────── */
+
+.ph-options-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.ph-opt-group {
+  margin-bottom: 10px;
+}
+
+.ph-opt-group-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #778;
+  margin-bottom: 4px;
+}
+
+.ph-opt-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.ph-opt-item {
+  padding: 5px 10px;
+  font-size: 0.74rem;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+  transition: all 0.15s ease;
+  line-height: 1.3;
+}
+
+.ph-opt-item:active {
+  cursor: grabbing;
+}
+
+.ph-opt-item.cat-from {
+  background: rgba(0, 180, 255, 0.1);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  color: #80c8f0;
+}
+
+.ph-opt-item.cat-subject {
+  background: rgba(255, 180, 0, 0.1);
+  border: 1px solid rgba(255, 180, 0, 0.25);
+  color: #f0c050;
+}
+
+.ph-opt-item.cat-body {
+  background: rgba(0, 230, 118, 0.08);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  color: #80c0a0;
+}
+
+.ph-opt-item.cat-cta {
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  color: #ff9090;
+}
+
+.ph-opt-item.cat-urgency {
+  background: rgba(180, 0, 255, 0.1);
+  border: 1px solid rgba(180, 0, 255, 0.25);
+  color: #c77dff;
+}
+
+.ph-opt-item.used {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+.ph-opt-item:hover:not(.used) {
+  transform: translateY(-1px);
+  filter: brightness(1.15);
+}
+
+.ph-opt-item.dragging {
+  opacity: 0.5;
+}
+
+/* ── Result overlay ──────────────────────────────────────────── */
+
+.ph-result-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+
+.ph-result-box {
+  background: #1a1a2e;
+  border: 1px solid rgba(180, 0, 255, 0.4);
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(180, 0, 255, 0.15);
+}
+
+.ph-result-box h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+.ph-result-box .ph-result-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ph-result-box .ph-result-text {
+  font-size: 0.9rem;
+  color: #c0c8d0;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.ph-result-box .ph-result-detail {
+  font-size: 0.8rem;
+  color: #889;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  text-align: left;
+}
+
+.ph-result-box button {
+  padding: 8px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 4px;
+  transition: all 0.15s ease;
+}
+
+.ph-result-box .ph-try-again-btn {
+  background: rgba(255, 180, 0, 0.15);
+  border: 1px solid rgba(255, 180, 0, 0.3);
+  color: #f0c050;
+}
+
+.ph-result-box .ph-try-again-btn:hover {
+  background: rgba(255, 180, 0, 0.25);
+}
+
+.ph-result-box .ph-continue-btn {
+  background: linear-gradient(135deg, #00b4ff, #0077b6);
+  color: #fff;
+}
+
+.ph-result-box .ph-continue-btn:hover {
+  transform: scale(1.04);
+}
+
+/* ── Help overlay ────────────────────────────────────────────── */
+
+.ph-help-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+
+.ph-help-box {
+  background: #1a1a2e;
+  border: 1px solid rgba(180, 0, 255, 0.4);
+  border-radius: 12px;
+  padding: 24px 28px;
+  max-width: 600px;
+  width: 92%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 40px rgba(180, 0, 255, 0.15);
+}
+
+.ph-help-box h3 {
+  color: #c77dff;
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+}
+
+.ph-help-box h4 {
+  color: #00b4ff;
+  font-size: 0.9rem;
+  margin: 14px 0 6px;
+}
+
+.ph-help-box p,
+.ph-help-box li {
+  font-size: 0.82rem;
+  color: #b0b8c0;
+  line-height: 1.5;
+}
+
+.ph-help-box ul {
+  padding-left: 18px;
+  margin: 4px 0;
+}
+
+.ph-help-box .ph-example-email {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(180, 0, 255, 0.2);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #a0a8b0;
+  line-height: 1.5;
+}
+
+.ph-help-close {
+  display: block;
+  margin: 16px auto 0;
+  padding: 8px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #c77dff, #8a2be2);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ph-help-close:hover {
+  transform: scale(1.04);
+}
+
+/* ── Win screen ──────────────────────────────────────────────── */
+
+.ph-end-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  gap: 16px;
+}
+
+.ph-end-screen h2 {
+  font-size: 1.8rem;
+  color: #00e676;
+  margin: 0;
+}
+
+.ph-end-screen .ph-lesson {
+  max-width: 540px;
+  background: rgba(180, 0, 255, 0.08);
+  border: 1px solid rgba(180, 0, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px 22px;
+  color: #c0d0e0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.ph-end-screen .ph-lesson strong {
+  color: #c77dff;
+}
+
+.ph-end-screen .ph-play-again {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #c77dff, #8a2be2);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ph-end-screen .ph-play-again:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px rgba(180, 0, 255, 0.3);
+}
+
+/* ── Sending animation ───────────────────────────────────────── */
+
+.ph-sending-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  gap: 12px;
+}
+
+.ph-sending-overlay .ph-sending-icon {
+  font-size: 3rem;
+  animation: ph-fly 1.2s ease infinite;
+}
+
+.ph-sending-overlay p {
+  color: #c77dff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@keyframes ph-fly {
+  0%   { transform: translateX(-20px) scale(1); opacity: 0.5; }
+  50%  { transform: translateX(20px) scale(1.1); opacity: 1; }
+  100% { transform: translateX(-20px) scale(1); opacity: 0.5; }
+}

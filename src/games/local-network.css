@@ -1,0 +1,618 @@
+/* ==============================================================
+   local-network.css — Network Path Tracer Game
+   ============================================================== */
+
+/* ── Wider modal variant for this game ───────────────────────── */
+
+#modal-box.modal-fullscreen-wide {
+  width: 98%;
+  max-width: 1350px;
+  max-height: 94vh;
+  padding: 10px 14px 14px;
+}
+
+/* ── Main container ──────────────────────────────────────────── */
+
+.ln-game {
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  gap: 0;
+  position: relative;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────── */
+
+.ln-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #0d2137 0%, #1a1a2e 100%);
+  border-bottom: 1px solid rgba(0, 180, 255, 0.25);
+  padding: 10px 16px;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.ln-timer {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00b4ff;
+  font-family: 'Courier New', monospace;
+  min-width: 80px;
+}
+
+.ln-round-info {
+  font-size: 0.85rem;
+  color: #aab;
+  white-space: nowrap;
+}
+
+.ln-answer-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.ln-answer-area label {
+  font-size: 0.85rem;
+  color: #aab;
+  white-space: nowrap;
+}
+
+.ln-answer-input {
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  border-radius: 6px;
+  color: #e0e0e0;
+  width: 160px;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.ln-answer-input:focus {
+  border-color: rgba(0, 180, 255, 0.7);
+  box-shadow: 0 0 8px rgba(0, 180, 255, 0.15);
+}
+
+.ln-submit-btn {
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00b4ff, #0077b6);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ln-submit-btn:hover {
+  transform: scale(1.04);
+}
+
+.ln-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+/* ── Board (left + right) ────────────────────────────────────── */
+
+.ln-board {
+  display: flex;
+  flex: 1;
+  gap: 0;
+  min-height: 0;
+}
+
+/* ── Left panel ──────────────────────────────────────────────── */
+
+.ln-left {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0, 180, 255, 0.15);
+  padding: 12px;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.ln-left-header h3 {
+  font-size: 1rem;
+  color: #00b4ff;
+  margin: 0 0 4px;
+}
+
+.ln-left-header p {
+  font-size: 0.78rem;
+  color: #889;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Steps list */
+
+.ln-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.ln-step {
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #778;
+  transition: all 0.3s ease;
+}
+
+.ln-step.current {
+  border-color: rgba(0, 180, 255, 0.3);
+  background: rgba(0, 180, 255, 0.08);
+  color: #c0d0e0;
+}
+
+.ln-step.done {
+  border-color: rgba(0, 230, 118, 0.25);
+  background: rgba(0, 230, 118, 0.06);
+  color: #80c0a0;
+}
+
+.ln-step-num {
+  font-weight: 700;
+  color: #00b4ff;
+  min-width: 18px;
+  flex-shrink: 0;
+}
+
+.ln-step.done .ln-step-num {
+  color: #00e676;
+}
+
+.ln-step-text {
+  flex: 1;
+}
+
+.ln-step-chosen {
+  font-weight: 700;
+  color: #00e676;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  margin-top: 2px;
+}
+
+/* Controls */
+
+.ln-controls {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ln-ctrl-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ln-undo-btn {
+  background: rgba(255, 180, 0, 0.12);
+  border: 1px solid rgba(255, 180, 0, 0.3);
+  color: #f0c050;
+}
+
+.ln-undo-btn:hover {
+  background: rgba(255, 180, 0, 0.2);
+  border-color: rgba(255, 180, 0, 0.5);
+}
+
+.ln-clear-btn {
+  background: rgba(255, 60, 60, 0.12);
+  border: 1px solid rgba(255, 60, 60, 0.3);
+  color: #ff8080;
+}
+
+.ln-clear-btn:hover {
+  background: rgba(255, 60, 60, 0.2);
+  border-color: rgba(255, 60, 60, 0.5);
+}
+
+/* Status bar */
+
+.ln-status {
+  text-align: center;
+  font-size: 0.78rem;
+  padding: 6px;
+  border-radius: 4px;
+  background: rgba(0, 180, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  color: #7cc8f0;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.ln-status.error {
+  background: rgba(255, 60, 60, 0.12);
+  border-color: rgba(255, 60, 60, 0.3);
+  color: #ff9090;
+}
+
+.ln-status.success {
+  background: rgba(0, 230, 118, 0.12);
+  border-color: rgba(0, 230, 118, 0.3);
+  color: #80e0a0;
+}
+
+/* ── Right panel ─────────────────────────────────────────────── */
+
+.ln-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.ln-right-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.ln-grid-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.ln-lines-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ln-lines-svg line {
+  stroke: #ff4444;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(255, 68, 68, 0.5));
+}
+
+.ln-lines-svg circle {
+  fill: #ff4444;
+  filter: drop-shadow(0 0 3px rgba(255, 68, 68, 0.5));
+}
+
+/* ── Grid ────────────────────────────────────────────────────── */
+
+.ln-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  max-height: 520px;
+  margin: auto;
+}
+
+/* ── Computer tile ───────────────────────────────────────────── */
+
+.ln-computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #162035 0%, #0f1825 100%);
+  border: 1px solid rgba(0, 180, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.ln-computer:hover {
+  border-color: rgba(0, 180, 255, 0.5);
+  background: linear-gradient(135deg, #1a2840 0%, #142030 100%);
+  transform: scale(1.03);
+}
+
+.ln-computer.clicked {
+  border-color: rgba(255, 68, 68, 0.6);
+  background: linear-gradient(135deg, #2a1525 0%, #1a0d18 100%);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+}
+
+.ln-computer.clicked .ln-pc-name {
+  color: #ff6b6b;
+}
+
+.ln-pc-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.ln-pc-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b0c0d0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.ln-pc-role {
+  font-size: 0.7rem;
+  color: #667;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Click order badge */
+
+.ln-click-badge {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  background: #ff4444;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* ── Solved letters display ──────────────────────────────────── */
+
+.ln-solved {
+  margin-bottom: 6px;
+}
+
+.ln-solved-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ln-solved-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  color: rgba(0, 180, 255, 0.3);
+}
+
+.ln-solved-letter.filled {
+  background: rgba(255, 68, 68, 0.15);
+  border-color: rgba(255, 68, 68, 0.4);
+  color: #ff6b6b;
+}
+
+/* ── Security question overlay ───────────────────────────────── */
+
+.ln-q-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+
+.ln-q-box {
+  background: #1a1a2e;
+  border: 1px solid rgba(0, 180, 255, 0.4);
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 180, 255, 0.15);
+}
+
+.ln-q-box h3 {
+  color: #00b4ff;
+  font-size: 1.1rem;
+  margin: 0 0 14px;
+}
+
+.ln-q-text {
+  color: #d0d8e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.ln-q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ln-q-opt {
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(0, 180, 255, 0.08);
+  color: #d0d8e0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.ln-q-opt:hover {
+  background: rgba(0, 180, 255, 0.18);
+  border-color: rgba(0, 180, 255, 0.5);
+}
+
+.ln-q-opt.q-correct {
+  background: rgba(0, 200, 80, 0.2);
+  border-color: rgba(0, 200, 80, 0.6);
+  color: #b5ffcf;
+}
+
+.ln-q-opt.q-wrong {
+  background: rgba(255, 60, 60, 0.2);
+  border-color: rgba(255, 60, 60, 0.5);
+  color: #ffb0b0;
+}
+
+.ln-q-opt:disabled {
+  cursor: default;
+}
+
+.ln-q-feedback {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.ln-q-feedback.fb-correct {
+  background: rgba(0, 200, 80, 0.15);
+  border: 1px solid rgba(0, 200, 80, 0.3);
+  color: #b5ffcf;
+}
+
+.ln-q-feedback.fb-wrong {
+  background: rgba(255, 60, 60, 0.15);
+  border: 1px solid rgba(255, 60, 60, 0.3);
+  color: #ffb0b0;
+}
+
+/* ── Round transition overlay ────────────────────────────────── */
+
+.ln-round-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  gap: 12px;
+}
+
+.ln-round-overlay h2 {
+  font-size: 1.6rem;
+  color: #00e676;
+  margin: 0;
+}
+
+.ln-round-overlay p {
+  font-size: 1rem;
+  color: #aab;
+  margin: 0;
+}
+
+/* ── End screen ──────────────────────────────────────────────── */
+
+.ln-end-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  gap: 16px;
+}
+
+.ln-end-screen h2 {
+  font-size: 1.8rem;
+  color: #00e676;
+  margin: 0;
+}
+
+.ln-end-time {
+  font-size: 1.3rem;
+  color: #00b4ff;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.ln-end-words {
+  display: flex;
+  gap: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.15em;
+}
+
+.ln-end-screen .ln-lesson {
+  max-width: 540px;
+  background: rgba(0, 180, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px 22px;
+  color: #c0d0e0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.ln-end-screen .ln-lesson strong {
+  color: #00b4ff;
+}
+
+.ln-end-screen .ln-play-again {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #00b4ff, #0077b6);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ln-end-screen .ln-play-again:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+}

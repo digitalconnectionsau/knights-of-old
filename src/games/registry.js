@@ -15,6 +15,7 @@ import { buildDataBackupsGame } from './data-backups.js';
 import { buildPublicWifiGame } from './public-wifi.js';
 import { buildPhishingGame } from './phishing.js';
 import { buildRansomwareGame } from './ransomware.js';
+import { buildLocalNetworkGame } from './local-network.js';
 
 export const gameRegistry = {
   'facebook': buildFacebookGame,
@@ -25,4 +26,5 @@ export const gameRegistry = {
   'public-wifi': buildPublicWifiGame,
   'phishing': buildPhishingGame,
   'ransomware': buildRansomwareGame,
+  'local-network': buildLocalNetworkGame,
 };

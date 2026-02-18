@@ -65,4 +65,11 @@ export const items = [
     x: '58%',
     y: '30%',
   },
+  {
+    id: 'local-network',
+    label: 'Local Network',
+    image: '/images/items/local-network.png',
+    x: '40%',
+    y: '50%',
+  },
 ];
