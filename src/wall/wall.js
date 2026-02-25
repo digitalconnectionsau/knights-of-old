@@ -25,6 +25,7 @@ export function initWall() {
     // Position via CSS custom properties (percentage-based)
     el.style.setProperty('--x', item.x);
     el.style.setProperty('--y', item.y);
+    el.style.setProperty('--angle', `${item.angle || 0}deg`);
 
     // Item image
     const img = document.createElement('img');

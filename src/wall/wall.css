@@ -26,43 +26,73 @@
   position: absolute;
   left: var(--x);
   top: var(--y);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(var(--angle, 0deg));
 
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.wall-item:hover {
+  transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) scale(1.08);
+  filter: drop-shadow(0 0 12px rgba(0, 180, 255, 0.6));
+}
+
+.wall-item img {
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  display: block;
+}
+
+.wall-item-label {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  color: rgba(240, 240, 240, 0.7);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: left;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* ---- Boxed style (for items without a proper image) ---- */
+
+.wall-item--boxed {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-
   background: rgba(0, 0, 0, 0.45);
   border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   padding: 12px;
-  cursor: pointer;
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.wall-item:hover {
-  transform: translate(-50%, -50%) scale(1.08);
+.wall-item--boxed:hover {
+  filter: none;
   box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
   border-color: rgba(0, 180, 255, 0.7);
 }
 
-.wall-item img {
+.wall-item--boxed img {
   width: 80px;
   height: 80px;
-  object-fit: contain;
-  pointer-events: none;
 }
 
-.wall-item-label {
+.wall-item--boxed .wall-item-label {
+  position: static;
   color: #f0f0f0;
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: center;
-  pointer-events: none;
+  text-shadow: none;
 }
 
 /* ---- Drag state ---- */

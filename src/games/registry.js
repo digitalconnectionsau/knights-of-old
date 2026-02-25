@@ -17,6 +17,15 @@ import { buildPhishingGame } from './phishing.js';
 import { buildRansomwareGame } from './ransomware.js';
 import { buildLocalNetworkGame } from './local-network.js';
 
+/** Simple image-only modal for decorative / non-game items */
+function buildImageModal(container, item) {
+  const img = document.createElement('img');
+  img.src = item.image;
+  img.alt = item.label;
+  img.style.cssText = 'max-width:100%;max-height:80vh;display:block;margin:0 auto;border-radius:8px;';
+  container.appendChild(img);
+}
+
 export const gameRegistry = {
   'facebook': buildFacebookGame,
   'linkedin': buildLinkedinGame,
@@ -27,4 +36,7 @@ export const gameRegistry = {
   'phishing': buildPhishingGame,
   'ransomware': buildRansomwareGame,
   'local-network': buildLocalNetworkGame,
+  'cctv-footage': buildImageModal,
+  'sticky-note': buildImageModal,
+  'coffee-stain': buildImageModal,
 };
