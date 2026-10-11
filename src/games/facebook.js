@@ -235,7 +235,7 @@ function privacyIcon(privacy) {
 
 // ─── BUILD ──────────────────────────────────────────────────
 
-export function buildFacebookGame(container, item) {
+export function buildFacebookGame(container, item, complete = () => {}) {
   const modalBox = document.getElementById('modal-box');
   modalBox.classList.add('modal-fullscreen');
 
@@ -467,6 +467,7 @@ export function buildFacebookGame(container, item) {
   }
 
   function showResults() {
+    complete();
     const total = posts.filter((p) => p.isOvershare).length;
     const correct = posts.filter((p, i) => p.isOvershare && flagged.has(i)).length;
     const falseFlags = posts.filter((p, i) => !p.isOvershare && flagged.has(i)).length;

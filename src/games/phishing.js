@@ -80,7 +80,7 @@ const WIN_THRESHOLD = 12; // need at least 12/15 with correct target
 
 // ─── BUILD GAME ─────────────────────────────────────────────
 
-export function buildPhishingGame(container) {
+export function buildPhishingGame(container, item, complete = () => {}) {
   const box = document.getElementById('modal-box');
   box.classList.add('modal-fullscreen');
 
@@ -508,6 +508,7 @@ export function buildPhishingGame(container) {
   // ── End screen ───────────────────────────────────────────
 
   function showEndScreen() {
+    complete();
     container.innerHTML = `
       <div class="ph-end-screen">
         <h2>🎣 Access Granted</h2>

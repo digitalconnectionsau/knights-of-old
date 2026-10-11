@@ -194,7 +194,7 @@ function formatText(t) {
 
 // ─── BUILD ──────────────────────────────────────────────────
 
-export function buildLinkedinGame(container, item) {
+export function buildLinkedinGame(container, item, complete = () => {}) {
   const modalBox = document.getElementById('modal-box');
   modalBox.classList.add('modal-fullscreen');
 
@@ -468,6 +468,7 @@ export function buildLinkedinGame(container, item) {
   }
 
   function showResults() {
+    complete();
     const total = posts.filter((p) => p.isOvershare).length;
     const correct = posts.filter((p, i) => p.isOvershare && flagged.has(i)).length;
     const falseFlags = posts.filter((p, i) => !p.isOvershare && flagged.has(i)).length;

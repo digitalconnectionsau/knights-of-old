@@ -19,7 +19,10 @@ const scenes = {
     text: `You connect and log into the company portal. What you don't know: an attacker on the
            same network is running a man-in-the-middle attack. They capture your login credentials.
            
-           Weeks later, those credentials are used to breach KNP's systems.`,
+           Weeks later, those credentials could be sold or used to break into KNP's systems.
+
+           (This isn't how KNP was actually breached — but it's one of the easiest ways
+           credentials get stolen.)`,
     choices: [
       { text: 'What should I have done?', next: 'lesson-wifi' },
     ],
@@ -59,9 +62,10 @@ const scenes = {
   },
 };
 
-export function buildPublicWifiGame(container) {
+export function buildPublicWifiGame(container, item, complete = () => {}) {
   function renderScene(sceneId) {
     const scene = scenes[sceneId];
+    if (scene.isEnding) complete();
 
     container.innerHTML = `
       <h2>The Coffee Shop Trap</h2>

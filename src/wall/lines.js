@@ -84,15 +84,8 @@ export function drawLines(timeline) {
 
 /**
  * Redraw lines on window resize so they stay aligned.
+ * @param {() => string[]} getTimeline  returns the current timeline
  */
-export function initLines() {
-  // We import getTimeline lazily to avoid a circular dependency
-  let _getTimeline;
-  import('../sidebar/sidebar.js').then((m) => {
-    _getTimeline = m.getTimeline;
-  });
-
-  window.addEventListener('resize', () => {
-    if (_getTimeline) drawLines(_getTimeline());
-  });
+export function initLines(getTimeline) {
+  window.addEventListener('resize', () => drawLines(getTimeline()));
 }

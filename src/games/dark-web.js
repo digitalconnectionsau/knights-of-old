@@ -337,7 +337,7 @@ const educationalNotes = {
 
 // ─── BUILD THE DARK WEB EXPERIENCE ──────────────────────────
 
-export function buildDarkWebGame(container, item) {
+export function buildDarkWebGame(container, item, complete = () => {}) {
   // Tell modal to go full-screen
   const modalBox = document.getElementById('modal-box');
   modalBox.classList.add('modal-fullscreen');
@@ -396,6 +396,7 @@ export function buildDarkWebGame(container, item) {
         storeTab.classList.remove('hidden');
         forumTab.classList.add('hidden');
       } else {
+        complete();   // reading the forum completes this clue
         forumTab.classList.remove('hidden');
         storeTab.classList.add('hidden');
       }
