@@ -3,7 +3,7 @@
 
    Type: Exploration / shock-value awareness
    Theme: Shows players that the dark web is real, that stolen
-          data is openly traded, and that major Australian
+          data is openly traded, and that major UK
           breaches have very real consequences.
    ========================================================== */
 
@@ -15,11 +15,11 @@ const storeCategories = [
     icon: '🔑',
     listings: [
       {
-        title: 'Australian Email + Password Combo List',
-        seller: 'DarkDump_AU',
+        title: 'UK Email + Password Combo List',
+        seller: 'DarkDump_UK',
         rating: '★★★★☆ (312)',
         price: '$12.00 USD',
-        description: '50,000 verified .com.au email/password combinations. Sourced from recent breaches. 78% hit rate on major platforms.',
+        description: '50,000 verified .co.uk email/password combinations. Sourced from recent breaches. 78% hit rate on major platforms.',
         sold: '1,842',
       },
       {
@@ -27,15 +27,15 @@ const storeCategories = [
         seller: 'NetGh0st',
         rating: '★★★★★ (87)',
         price: '$250.00 USD',
-        description: 'Active VPN logins for 3 Australian logistics companies. Verified within 48hrs. Includes internal network maps.',
+        description: 'Active VPN logins for 3 UK logistics companies. Verified within 48hrs. Includes internal network maps.',
         sold: '14',
       },
       {
-        title: 'Banking Login Pack — Big 4 AU Banks',
+        title: 'Banking Login Pack — UK Banks',
         seller: 'PhishKing_',
         rating: '★★★★☆ (541)',
         price: '$45.00 USD per account',
-        description: 'Internet banking credentials for CBA, NAB, ANZ, Westpac. Includes security question answers. Balances $5k–$50k.',
+        description: 'Internet banking credentials for major UK banks. Includes security question answers. Balances £5k–£50k.',
         sold: '329',
       },
       {
@@ -43,7 +43,7 @@ const storeCategories = [
         seller: 'StreamLeech',
         rating: '★★★☆☆ (1,203)',
         price: '$2.50 USD',
-        description: '10x working streaming accounts. Australian region. Some with family plans. No guarantees past 30 days.',
+        description: '10x working streaming accounts. UK region. Some with family plans. No guarantees past 30 days.',
         sold: '8,412',
       },
     ],
@@ -53,27 +53,27 @@ const storeCategories = [
     icon: '🪪',
     listings: [
       {
-        title: 'Full Identity Package — Australian Citizen',
+        title: 'Full Identity Package — UK Citizen',
         seller: 'ID_Factory',
         rating: '★★★★★ (198)',
         price: '$85.00 USD',
-        description: 'Full name, DOB, address, TFN, Medicare number, drivers licence number, mother\'s maiden name. Verified fresh.',
+        description: 'Full name, DOB, address, National Insurance number, NHS number, driving licence number, mother\'s maiden name. Verified fresh.',
         sold: '673',
       },
       {
-        title: 'Medicare Card Data — Bulk (100 records)',
+        title: 'NHS Number Data — Bulk (100 records)',
         seller: 'MedLeak',
         rating: '★★★★☆ (64)',
         price: '$180.00 USD',
-        description: 'Bulk pack of Medicare numbers with matching names and DOBs. Sourced from healthcare sector breach 2024.',
+        description: 'Bulk pack of NHS numbers with matching names and DOBs. Sourced from healthcare sector breach 2024.',
         sold: '41',
       },
       {
-        title: 'Drivers Licence Scans — NSW & VIC',
+        title: 'Driving Licence Scans — UK',
         seller: 'ScanMaster',
         rating: '★★★★☆ (223)',
         price: '$25.00 USD each',
-        description: 'High-resolution scans of real Australian drivers licences. Useful for verification bypasses.',
+        description: 'High-resolution scans of real UK driving licences. Useful for verification bypasses.',
         sold: '1,102',
       },
     ],
@@ -83,23 +83,23 @@ const storeCategories = [
     icon: '🗄️',
     listings: [
       {
-        title: 'Optus Customer Database — 9.8M Records',
-        seller: 'OptusData',
+        title: 'Telecom Customer Database — 2M Records',
+        seller: 'TelcoDump',
         rating: '★★★★★ (46)',
         price: '$1,000.00 USD',
-        description: 'Full Optus 2022 breach dump. Names, DOBs, passport numbers, licence numbers, emails, phone numbers. Unredacted.',
+        description: 'Customer dump from a UK telecoms breach. Names, DOBs, passport numbers, licence numbers, emails, phone numbers. Unredacted.',
         sold: '127',
       },
       {
-        title: 'Medibank Patient Records Subset',
+        title: 'Patient Records Subset',
         seller: 'MediDump',
         rating: '★★★★☆ (33)',
         price: '$500.00 USD',
-        description: 'Contains names, DOBs, Medicare numbers and health claims data including sensitive procedures. ~480k records.',
+        description: 'Contains names, DOBs, NHS numbers and test results. ~480k records.',
         sold: '58',
       },
       {
-        title: 'Australian University Student Records',
+        title: 'UK University Student Records',
         seller: 'EduBreach',
         rating: '★★★☆☆ (89)',
         price: '$75.00 USD',
@@ -143,11 +143,11 @@ const storeCategories = [
     icon: '💳',
     listings: [
       {
-        title: 'Cloned Credit Cards — AU Issued',
+        title: 'Cloned Credit Cards — UK Issued',
         seller: 'CardPress',
         rating: '★★★★☆ (389)',
         price: '$65.00 USD each',
-        description: 'Physical cloned Visa/Mastercard. Australian banks. $2k–$10k limits. Ships within Australia only.',
+        description: 'Physical cloned Visa/Mastercard. UK banks. £2k–£10k limits. Ships within the UK only.',
         sold: '1,567',
       },
       {
@@ -173,7 +173,7 @@ const storeCategories = [
     icon: '📄',
     listings: [
       {
-        title: 'Fake Australian Passport — Premium Quality',
+        title: 'Fake UK Passport — Premium Quality',
         seller: 'DocForge',
         rating: '★★★★★ (67)',
         price: '$2,500.00 USD',
@@ -181,11 +181,11 @@ const storeCategories = [
         sold: '23',
       },
       {
-        title: 'Fake Drivers Licence — Any AU State',
-        seller: 'AusIDShop',
+        title: 'Fake UK Driving Licence',
+        seller: 'UKIDShop',
         rating: '★★★★☆ (312)',
         price: '$350.00 USD',
-        description: 'PVC card with hologram. Choose NSW, VIC, QLD, WA, SA, TAS. Custom photo and details. Scans on basic readers.',
+        description: 'PVC card with hologram. Custom photo and details. Scans on basic readers.',
         sold: '891',
       },
       {
@@ -193,124 +193,115 @@ const storeCategories = [
         seller: 'VaxFree',
         rating: '★★☆☆☆ (45)',
         price: '$50.00 USD',
-        description: 'Australian Immunisation Register format. Includes QR code. May not pass government verification systems.',
+        description: 'NHS COVID Pass format. Includes QR code. May not pass government verification systems.',
         sold: '2,301',
       },
     ],
   },
 ];
 
-// ─── FORUM THREADS (Real AU breaches, newest → oldest) ──────
+// ─── FORUM THREADS (Real UK attacks, newest → oldest) ──────
 
 const forumThreads = [
   {
-    title: 'MediSecure Breach — Prescription Data for 12.9M Aussies',
-    date: 'May 2024',
-    author: 'PharmaLeak',
-    replies: 342,
-    views: '28.4k',
+    title: 'Co-op — Member Data for 6.5 Million People',
+    date: 'Apr 2025',
+    author: 'RetailWatch',
+    replies: 298,
+    views: '24.1k',
     pinned: true,
-    preview: 'Full prescription histories, names, DOBs, addresses, Medicare numbers. E-prescription provider got popped. Data is already being sold in batches. This is healthcare data — top dollar stuff.',
+    preview: 'The Co-op confirmed that personal details of around 6.5 million members were taken. It shut down parts of its own IT to contain the attack, and some shop shelves went empty for a while.',
     comments: [
-      { author: 'DarkBuyer88', text: 'Healthcare data is gold. People can\'t change their Medicare numbers like they change a password.' },
-      { author: 'InfoSecWatch', text: 'This is exactly why single points of failure in healthcare IT are terrifying.' },
-      { author: 'CyberGhost_AU', text: 'Anyone got a sample set? Need to verify before buying the full dump.' },
+      { author: 'IRConsultant', text: 'Pulling the plug early hurts, but it limited the damage. Speed matters.' },
+      { author: 'PrivacyNerd', text: 'No payment data, but names, addresses and phone numbers are enough for convincing scam calls.' },
     ],
   },
   {
-    title: 'DP World Ports Hack — Australia\'s Supply Chain Crippled',
-    date: 'Nov 2023',
-    replies: 189,
-    author: 'PortCracker',
-    views: '15.2k',
+    title: 'M&S — Online Orders Down for Six Weeks',
+    date: 'Apr 2025',
+    author: 'RetailWatch',
+    replies: 356,
+    views: '29.8k',
     pinned: false,
-    preview: 'DP World operates 40% of Australia\'s container trade. Hackers got in, they had to shut down port operations for 3 days. Containers sitting on docks, supply chains wrecked. Corporate data extracted before lockdown.',
+    preview: 'Marks & Spencer stopped taking online orders for around 46 days after a cyber attack. Some customer data was taken. M&S estimated the hit to profit at around £300 million.',
     comments: [
-      { author: 'LogisticsNerd', text: 'This showed how fragile critical infrastructure really is. One breach = national impact.' },
-      { author: 'APT_Tracker', text: 'Likely a nation-state affiliate. The lateral movement was too clean for script kiddies.' },
+      { author: 'SupplyChainSec', text: 'A household name, offline for weeks. Nobody is too big for this.' },
+      { author: 'HelpDeskHero', text: 'Reports say it started with social engineering against a help desk. Verify callers properly.' },
     ],
   },
   {
-    title: 'Latitude Financial — 14 MILLION Records Stolen',
-    date: 'Mar 2023',
+    title: 'Synnovis / NHS — London Blood Tests Disrupted',
+    date: 'Jun 2024',
+    author: 'PathLeak',
+    replies: 412,
+    views: '33.5k',
+    pinned: false,
+    preview: 'A ransomware attack on Synnovis, which runs pathology services for several London NHS hospitals, disrupted blood tests. Thousands of appointments and operations were postponed, and stolen data was later published online.',
+    comments: [
+      { author: 'HealthPrivacy', text: 'Hit one supplier and you hit every hospital that relies on it.' },
+      { author: 'InfoSecWatch', text: 'This one affected real patients, not just spreadsheets.' },
+    ],
+  },
+  {
+    title: 'British Library — Months Offline After Ransomware',
+    date: 'Oct 2023',
+    author: 'ShelfLife',
+    replies: 267,
+    views: '21.9k',
+    pinned: false,
+    preview: 'The Rhysida gang attacked the British Library. It refused to pay, and around 600GB of data, including staff details, was leaked. The online catalogue and many services were down for months.',
+    comments: [
+      { author: 'RansomWatch', text: 'Not paying was the right call. Rebuilding took a very long time.' },
+      { author: 'LegacyIT', text: 'Old systems that are hard to patch made recovery much harder.' },
+    ],
+  },
+  {
+    title: 'Electoral Commission — 40 Million Voters\' Details',
+    date: 'Aug 2023',
+    author: 'RollCall',
     replies: 521,
-    author: 'FinBreacher',
     views: '41.7k',
     pinned: false,
-    preview: 'Latitude Financial got absolutely destroyed. 14 million customer records — drivers licences, passport numbers, financial statements. They initially said 300k… then kept revising up. The real number is catastrophic.',
+    preview: 'The Electoral Commission revealed attackers had access to its systems for over a year before it noticed. Names and addresses on the electoral registers, around 40 million people, were exposed.',
     comments: [
-      { author: 'DataHoarder', text: '14 million in a country of 26 million. That\'s more than half the adult population.' },
-      { author: 'IDTheftPro', text: 'The drivers licence data from this breach is still being used for identity fraud right now.' },
-      { author: 'RiskAnalyst', text: 'They held records going back 18 years. Why? Data retention policies exist for a reason.' },
+      { author: 'DetectionFirst', text: 'Over a year inside without being spotted. Monitoring matters as much as prevention.' },
     ],
   },
   {
-    title: 'HWL Ebsworth Law Firm Hack — Legal Secrets Dumped',
-    date: 'Apr 2023',
-    replies: 267,
-    author: 'ALPHV_Fan',
-    views: '22.1k',
+    title: 'Capita — Outsourcer Breach Hits Dozens of Clients',
+    date: 'Mar 2023',
+    author: 'SupplierRisk',
+    replies: 189,
+    views: '15.2k',
     pinned: false,
-    preview: 'One of Australia\'s largest law firms. ALPHV/BlackCat ransomware gang published 1.45TB of data. Client files, court documents, privileged communications. Government clients exposed. This is as bad as it gets for a law firm.',
+    preview: 'A ransomware attack on Capita exposed data it held for clients, including pension schemes and councils. One supplier breach became dozens of organisations\' problem.',
     comments: [
-      { author: 'LegalEagle', text: 'Attorney-client privilege means nothing when your data is sitting on a .onion site.' },
-      { author: 'GovSecWatch', text: 'They had government contracts. Defence, infrastructure. The classified exposure hasn\'t been fully assessed.' },
+      { author: 'ThirdPartyRisk', text: 'Your data is only as safe as your weakest supplier.' },
     ],
   },
   {
-    title: '🔥 Optus Breach — 9.8M Customer Records 🔥',
-    date: 'Sep 2022',
-    replies: 1843,
-    author: 'OptusData',
-    views: '156.3k',
-    pinned: false,
-    preview: 'The big one. Optus left an unauthenticated API endpoint exposed to the internet. No login required. An attacker just… walked in and downloaded 9.8 million records. Names, DOBs, passport numbers, licence numbers. The API had been open for months.',
-    comments: [
-      { author: 'APIHunter', text: 'An unauthenticated API in 2022. Let that sink in. No auth. None.' },
-      { author: 'BreachTrader', text: 'Full dataset going for $1M. Passport numbers and licence numbers are the real value here.' },
-      { author: 'CyberPolicy', text: 'This single breach changed Australia\'s privacy laws. That\'s how bad it was.' },
-      { author: 'NetworkAdmin', text: 'They didn\'t even have rate limiting on the endpoint. You could just enumerate customer IDs sequentially.' },
-    ],
-  },
-  {
-    title: 'Medibank / ahm — Health Data on the Dark Web NOW',
-    date: 'Oct 2022',
-    replies: 1204,
-    author: 'MediBreach',
-    views: '98.7k',
-    pinned: false,
-    preview: 'Medibank refused to pay the ransom. Attackers started dumping data in categories: "good-list", "naughty-list". Health claims data including mental health, substance abuse treatment, pregnancy terminations. 9.7 million customers exposed.',
-    comments: [
-      { author: 'HealthPrivacy', text: 'They categorised dumps by medical procedures. A "naughty list" of sensitive claims. People\'s most private health decisions, published.' },
-      { author: 'RansomWatch', text: 'Medibank did the right thing not paying. But the human cost of this data being public is immeasurable.' },
-      { author: 'DarkAnalyst', text: 'This is the breach that made Australians realise their health data isn\'t safe.' },
-    ],
-  },
-  {
-    title: 'Toll Group — Hit TWICE by Ransomware in One Year',
-    date: 'Feb 2020 / May 2020',
+    title: 'Royal Mail — International Post Stopped for Weeks',
+    date: 'Jan 2023',
+    author: 'PostMortem',
     replies: 445,
-    author: 'TollPwned',
     views: '34.8k',
     pinned: false,
-    preview: 'Australian logistics giant Toll Group got hit by MailTo ransomware in February 2020. They barely recovered before Nefilim ransomware hit them again in May. Attackers published corporate data on the dark web. Two different ransomware gangs, same company, same year.',
+    preview: 'LockBit ransomware stopped Royal Mail sending parcels and letters abroad for around six weeks. Royal Mail refused a reported $80 million ransom demand.',
     comments: [
-      { author: 'IRConsultant', text: 'Getting hit once is a failure. Getting hit twice in 3 months means you learned nothing from the first time.' },
-      { author: 'SupplyChainSec', text: 'Toll is a critical logistics provider. Both attacks disrupted deliveries across Australia.' },
+      { author: 'LogisticsNerd', text: 'Logistics runs on IT. When the systems stop, the vans stop.' },
+      { author: 'BackupBob', text: 'Refusing to pay only works if you can recover without them.' },
     ],
   },
   {
-    title: 'Canva Breach — 137 Million Users Worldwide',
-    date: 'May 2019',
+    title: 'TalkTalk — 157,000 Customers Exposed',
+    date: 'Oct 2015',
+    author: 'OldSchool',
     replies: 876,
-    author: 'GnosticPlayers',
     views: '67.2k',
     pinned: false,
-    preview: 'Australian-founded design platform Canva breached by GnosticPlayers. 137 million user records including usernames, real names, email addresses, and bcrypt password hashes. Also included Google OAuth tokens for users who signed in via Google.',
+    preview: 'A basic website flaw let teenagers access data on around 157,000 TalkTalk customers. The regulator fined TalkTalk £400,000 for failing to protect it.',
     comments: [
-      { author: 'HashCracker', text: 'Bcrypt hashes at least — not plain text. But weak passwords still crack fast with modern GPUs.' },
-      { author: 'OAuthResearcher', text: 'The OAuth token leak was underreported. That\'s not just Canva access — that\'s potentially Google account access.' },
-      { author: 'ScaleSec', text: '137 million. Australian startup goes global, and so does the breach impact.' },
+      { author: 'PatchItNow', text: 'A known, fixable weakness. Basics first, always.' },
     ],
   },
 ];
@@ -329,8 +320,8 @@ const educationalNotes = {
   forum: `<div class="dw-edu-banner">
     <span class="dw-edu-icon">⚠️</span>
     <div>
-      <strong>These are real Australian data breaches.</strong> The forum posts are simulated, but the incidents, dates, and data volumes are real.
-      Together, these breaches exposed more data records than Australia has people.
+      <strong>These are real UK cyber attacks.</strong> The forum posts are simulated, but the incidents and dates are real.
+      The Electoral Commission breach alone affected around 40 million people.
     </div>
   </div>`,
 };
@@ -365,7 +356,7 @@ export function buildDarkWebGame(container, item, complete = () => {}) {
 
       <div class="dw-header">
         <h1 class="dw-title">Shadow Market</h1>
-        <p class="dw-subtitle">Australia's Premier Underground Marketplace</p>
+        <p class="dw-subtitle">The UK's Premier Underground Marketplace</p>
         <div class="dw-stats">
           <span>👤 12,847 vendors</span>
           <span>📦 94,231 listings</span>
@@ -471,7 +462,7 @@ function renderForum(container) {
 
   html += `<div class="dw-forum-header">
     <h2>📋 Breach Discussion Board</h2>
-    <p class="dw-forum-desc">High-profile Australian data breaches — newest first</p>
+    <p class="dw-forum-desc">High-profile UK cyber attacks — newest first</p>
   </div>`;
 
   html += `<div class="dw-threads">`;

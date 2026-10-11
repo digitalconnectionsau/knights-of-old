@@ -47,12 +47,12 @@ const liAvatarColors = {
 // ─── PROFILES ───────────────────────────────────────────────
 
 const profiles = {
-  james:  { name: 'James Cooper', headline: 'IT Support Technician at KNP Logistics', initials: 'JC', connections: '247', location: 'Sydney, Australia' },
-  karen:  { name: 'Karen Patel', headline: 'Finance Manager at KNP Logistics', initials: 'KP', connections: '312', location: 'Sydney, Australia' },
-  mark:   { name: 'Mark O\'Brien', headline: 'Operations Director at KNP Logistics', initials: 'MO', connections: '500+', location: 'Sydney, Australia' },
-  sarah:  { name: 'Sarah Mitchell', headline: 'Office Manager at KNP Logistics', initials: 'SM', connections: '189', location: 'Sydney, Australia' },
-  lisa:   { name: 'Lisa Chen', headline: 'HR Coordinator at KNP Logistics', initials: 'LC', connections: '356', location: 'Sydney, Australia' },
-  dave:   { name: 'Dave Thompson', headline: 'Warehouse Supervisor at KNP Logistics', initials: 'DT', connections: '127', location: 'Sydney, Australia' },
+  james:  { name: 'James Cooper', headline: 'IT Support Technician at KNP Logistics', initials: 'JC', connections: '247', location: 'Northamptonshire, England' },
+  karen:  { name: 'Karen Patel', headline: 'Finance Manager at KNP Logistics', initials: 'KP', connections: '312', location: 'Northamptonshire, England' },
+  mark:   { name: 'Mark O\'Brien', headline: 'Operations Director at KNP Logistics', initials: 'MO', connections: '500+', location: 'Northamptonshire, England' },
+  sarah:  { name: 'Sarah Mitchell', headline: 'Office Manager at KNP Logistics', initials: 'SM', connections: '189', location: 'Northamptonshire, England' },
+  lisa:   { name: 'Lisa Chen', headline: 'HR Coordinator at KNP Logistics', initials: 'LC', connections: '356', location: 'Northamptonshire, England' },
+  dave:   { name: 'Dave Thompson', headline: 'Warehouse Supervisor at KNP Logistics', initials: 'DT', connections: '127', location: 'Northamptonshire, England' },
 };
 
 // Sidebar profile cards (featured)
@@ -77,7 +77,7 @@ const posts = [
   {
     profile: 'james',
     time: '3d',
-    text: `Real talk: I'm the only IT person at KNP Logistics right now. Managing 150+ endpoints, our Windows Server 2012 R2 domain controllers, Cisco ASA 5506 firewalls, and the Veeam backup infrastructure — all solo.\n\nIf you know any good MSPs in the Sydney area that won't break the bank, drop me a message. We need help but the budget is tight. 😅\n\n#ITLife #SysAdmin #SMBStruggles #Help`,
+    text: `Real talk: I'm the only IT person at KNP Logistics right now. Managing 150+ endpoints, our Windows Server 2012 R2 domain controllers, Cisco ASA 5506 firewalls, and the Veeam backup infrastructure — all solo.\n\nIf you know any good MSPs in the Northants area that won't break the bank, drop me a message. We need help but the budget is tight. 😅\n\n#ITLife #SysAdmin #SMBStruggles #Help`,
     reactions: { like: 56, insightful: 21, curious: 12 },
     commentCount: 34,
     topComment: { profile: 'mark', text: 'Appreciate everything you do mate. We\'ll sort the resourcing.' },
@@ -87,7 +87,7 @@ const posts = [
   {
     profile: 'karen',
     time: '4d',
-    text: `Thrilled to announce KNP Logistics has been awarded the TransCorp Australia contract! 🚛\n\nThis is a huge milestone for our team. We'll be handling their entire east-coast distribution network starting Q2.\n\nGrateful for our amazing operations team who put the proposal together. Onwards and upwards!\n\n#Logistics #NewBusiness #KNPLogistics`,
+    text: `Thrilled to announce KNP Logistics has been awarded the TransCorp UK contract! 🚛\n\nThis is a huge milestone for our team. We'll be handling their entire east-coast distribution network starting Q2.\n\nGrateful for our amazing operations team who put the proposal together. Onwards and upwards!\n\n#Logistics #NewBusiness #KNPLogistics`,
     reactions: { like: 156, celebrate: 54, love: 24 },
     commentCount: 41,
     topComment: { profile: 'dave', text: 'This is massive! Well done everyone 🎉' },
@@ -107,8 +107,8 @@ const posts = [
   {
     profile: 'sarah',
     time: '1w',
-    text: `Had the pleasure of attending the Australian Logistics Conference last week in Melbourne!\n\nGreat insights on the future of supply chain technology. Met so many inspiring people.\n\nLooking forward to implementing some of these ideas at KNP. Thanks to everyone who made it such a great event!\n\n#ALC2024 #Logistics #Networking`,
-    image: { desc: 'Sarah at the Australian Logistics Conference with lanyard and badge visible, venue hall in background', color: '#2C3E50' },
+    text: `Had the pleasure of attending the UK Logistics Expo last week in Birmingham!\n\nGreat insights on the future of supply chain technology. Met so many inspiring people.\n\nLooking forward to implementing some of these ideas at KNP. Thanks to everyone who made it such a great event!\n\n#ALC2024 #Logistics #Networking`,
+    image: { desc: 'Sarah at the UK Logistics Expo with lanyard and badge visible, venue hall in background', color: '#2C3E50' },
     reactions: { like: 42, celebrate: 18, love: 7 },
     commentCount: 12,
     topComment: { profile: 'lisa', text: 'Great to see you there Sarah! Such a good event.' },
@@ -118,7 +118,7 @@ const posts = [
   {
     profile: 'lisa',
     time: '1w',
-    text: `🚨 We're hiring at KNP Logistics! 🚨\n\nLooking for a Network Administrator to join our growing team in Sydney. You'll be working with:\n\n• Windows Server 2012 R2 & 2019 environment\n• Cisco ASA & Meraki networking\n• Veeam Backup & Replication\n• VMware vSphere 6.7\n• Microsoft 365 administration\n\nMust have experience with Active Directory, Group Policy, and VPN management (we use Cisco AnyConnect).\n\nCompetitive salary + benefits. DM me for details!\n\n#Hiring #ITJobs #Sydney #NetworkAdmin`,
+    text: `🚨 We're hiring at KNP Logistics! 🚨\n\nLooking for a Network Administrator to join our growing team in Northamptonshire. You'll be working with:\n\n• Windows Server 2012 R2 & 2019 environment\n• Cisco ASA & Meraki networking\n• Veeam Backup & Replication\n• VMware vSphere 6.7\n• Microsoft 365 administration\n\nMust have experience with Active Directory, Group Policy, and VPN management (we use Cisco AnyConnect).\n\nCompetitive salary + benefits. DM me for details!\n\n#Hiring #ITJobs #Sydney #NetworkAdmin`,
     reactions: { like: 28, insightful: 12, curious: 5 },
     commentCount: 28,
     topComment: { profile: 'james', text: 'Please someone apply, I need the help 😂' },
@@ -323,7 +323,7 @@ export function buildLinkedinGame(container, item, complete = () => {}) {
               <div class="li-news-header">LinkedIn News</div>
               <ul class="li-news-list">
                 <li><strong>Cyber attacks on logistics firms surge 40%</strong><br><span>2d ago · 4,521 readers</span></li>
-                <li><strong>Australian SMBs most targeted by ransomware</strong><br><span>3d ago · 12,890 readers</span></li>
+                <li><strong>UK SMEs most targeted by ransomware</strong><br><span>3d ago · 12,890 readers</span></li>
                 <li><strong>Job postings reveal company secrets: report</strong><br><span>1w ago · 8,134 readers</span></li>
                 <li><strong>MFA adoption still lagging in mid-market</strong><br><span>1w ago · 3,267 readers</span></li>
                 <li><strong>Social engineering: LinkedIn's blind spot</strong><br><span>2w ago · 15,412 readers</span></li>
@@ -333,7 +333,7 @@ export function buildLinkedinGame(container, item, complete = () => {}) {
               <div class="li-ad-label">Ad</div>
               <div class="li-ad-body">
                 <strong>Protect your business from cyber threats</strong>
-                <span>SecureIT Solutions — Trusted by Australian businesses since 2015.</span>
+                <span>SecureIT Solutions — Trusted by UK businesses since 2015.</span>
                 <button class="li-ad-btn">Learn more</button>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 A cyber awareness mystery game by Escape Llama. Players investigate an evidence wall, play a mini-game for each clue, then rebuild the attack in order to close the case — and learn how one guessed password took down a 158-year-old business.
 
-Based on the real 2023 ransomware attack on KNP Logistics Group (formerly Knights of Old), a UK transport company.
+Based on the real 2023 ransomware attack on KNP Logistics Group (formerly Knights of Old), a UK transport company. The whole game is set in the UK: Northamptonshire locations, UK banks and IDs, and real UK cyber attacks on the dark web forum.
 
 > **Private repo.** Contains unreleased game content.
 
@@ -98,4 +98,3 @@ Served images are WebP, max 1200px wide (wall background 2560px). Put new full-s
 
 - The full-screen mini-games (Facebook, LinkedIn, Dark Web, Phishing, Local Network) are built for desktop and tablets; they're cramped on phones.
 - No incident-report screen yet beyond the debrief (it was removed in Feb 2026).
-- LinkedIn job ad says Sydney and the dark web market is "Australia's" — KNP was UK-based. Decide whether to localise the whole story to Australia or keep it UK.

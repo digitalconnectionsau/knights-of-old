@@ -43,9 +43,9 @@ const DIRECTORY = [
 const OPTIONS = {
   from: [
     { id: 'f1', text: 'Microsoft 365 Admin <no-reply@m1crosoft-365.com>',       score: 1, feedback: 'Misspelled domain — a trained eye will catch this.' },
-    { id: 'f2', text: 'KNP IT Operations <it-ops@knp-logistics.com>',           score: 3, feedback: 'Perfect — matches an internal address the target would trust.' },
+    { id: 'f2', text: 'KNP IT Operations <it-ops@knp-logistics.co.uk>',           score: 3, feedback: 'Perfect — matches an internal address the target would trust.' },
     { id: 'f3', text: 'Prince of Nigeria <prince@royalmail.ng>',                score: 0, feedback: 'Nobody falls for this any more.' },
-    { id: 'f4', text: 'Derek Nolan <derek.nolan@knp-logistics.com>',            score: 2, feedback: 'Good — impersonating the senior admin, but Derek might notice.' },
+    { id: 'f4', text: 'Derek Nolan <derek.nolan@knp-logistics.co.uk>',            score: 2, feedback: 'Good — impersonating the senior admin, but Derek might notice.' },
     { id: 'f5', text: 'Helpdesk <support@helpdesk-knp.com>',                    score: 1, feedback: 'The domain doesn\'t match KNP\'s real domain.' },
   ],
   subject: [
@@ -62,7 +62,7 @@ const OPTIONS = {
     { id: 'b4', text: 'Hi, we noticed unusual sign-in activity on the admin account. Please verify your credentials at the link below to prevent lockout.',  score: 2, feedback: 'Decent — uses fear, but isn\'t personalised to the target.' },
   ],
   cta: [
-    { id: 'c1', text: 'Click here: https://knp-logistics.com.admin-portal.net/verify',  score: 3, feedback: 'Lookalike domain that includes the real company name — very deceptive.' },
+    { id: 'c1', text: 'Click here: https://knp-logistics.co.uk.admin-portal.net/verify',  score: 3, feedback: 'Lookalike domain that includes the real company name — very deceptive.' },
     { id: 'c2', text: 'Please visit: http://totally-legit-site.com/login',               score: 0, feedback: 'Obviously fake — nobody trusts "totally-legit-site".' },
     { id: 'c3', text: 'Reply to this email with your current admin password',             score: 1, feedback: 'Asking directly for a password is suspicious even to new starters.' },
     { id: 'c4', text: 'Open the attached PDF for renewal instructions (contains macro)',  score: 2, feedback: 'Attachments work but many mail filters block macros now.' },
@@ -204,7 +204,7 @@ export function buildPhishingGame(container, item, complete = () => {}) {
     selectedTarget = idx;
     const p = DIRECTORY[idx];
     targetDisp.innerHTML = `🎯 <strong>${p.name}</strong> — ${p.role}`;
-    emailTo.textContent = `${p.name.toLowerCase().replace(' ', '.')}@knp-logistics.com`;
+    emailTo.textContent = `${p.name.toLowerCase().replace(' ', '.')}@knp-logistics.co.uk`;
     emailTo.style.color = '#d0d0e0';
     emailTo.style.fontStyle = 'normal';
     renderDirectory(dirSearch.value);
