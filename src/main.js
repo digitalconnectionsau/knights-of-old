@@ -16,8 +16,8 @@ import './sidebar/sidebar.css';
 
 // Modules
 import { initWall }    from './wall/wall.js';
-import { initModal }   from './modal/modal.js';
-import { initSidebar } from './sidebar/sidebar.js';
+import { initModal, setAddToTimelineHandler } from './modal/modal.js';
+import { initSidebar, addToTimeline, getTimeline } from './sidebar/sidebar.js';
 import { initLines }   from './wall/lines.js';
 
 // ---- Boot ----
@@ -37,5 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initWall();
   initModal();
   initSidebar();
-  initLines();
+  initLines(getTimeline);
+  setAddToTimelineHandler(addToTimeline);
 });

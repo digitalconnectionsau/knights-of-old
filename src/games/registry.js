@@ -37,6 +37,7 @@ export const gameRegistry = {
   'ransomware': buildRansomwareGame,
   'local-network': buildLocalNetworkGame,
   'cctv-footage': buildImageModal,
+  'news-clipping': buildImageModal,
   'sticky-note': buildImageModal,
   'coffee-stain': buildImageModal,
 };

@@ -19,11 +19,11 @@ const traits = [
   { text: 'Shared with a colleague',       good: false },
 ];
 
-export function buildPasswordHygieneGame(container) {
+export function buildPasswordHygieneGame(container, item, complete = () => {}) {
   container.innerHTML = `
     <h2>Password Hygiene</h2>
     <p>
-      At KNP, attackers exploited weak and reused credentials to move through the network.
+      At KNP, attackers got in by guessing one employee's weak password.
       <strong>Select every trait that makes a password STRONG.</strong>
     </p>
     <div class="trait-grid"></div>
@@ -56,6 +56,7 @@ export function buildPasswordHygieneGame(container) {
   checkBtn.addEventListener('click', () => {
     const buttons = grid.querySelectorAll('.trait-btn');
     let score = 0;
+    let wrongPicks = 0;
     const total = traits.filter((t) => t.good).length;
 
     buttons.forEach((btn) => {
@@ -71,18 +72,25 @@ export function buildPasswordHygieneGame(container) {
         btn.style.opacity = '0.5';
       } else if (!isGood && isSelected) {
         btn.classList.add('wrong');
+        wrongPicks++;
       }
     });
 
     checkBtn.disabled = true;
+    complete();
 
-    const perfect = score === total;
+    // Selecting everything shouldn't count as perfect
+    const perfect = score === total && wrongPicks === 0;
+    const wrongNote = wrongPicks
+      ? ` You also picked ${wrongPicks} weak habit${wrongPicks > 1 ? 's' : ''} (in red).`
+      : '';
     resultDiv.innerHTML = `
       <div class="result-msg ${perfect ? 'success' : 'fail'}" style="margin-top:14px">
         ${perfect
           ? '✓ Perfect! You know what makes a strong password.'
-          : `You picked ${score} of ${total} good traits. Remember — a strong, unique password for every account is your first line of defence.`}
+          : `You picked ${score} of ${total} good traits.${wrongNote} Remember — a strong, unique password for every account is your first line of defence.`}
       </div>
+      <p style="margin-top:12px">Even a strong password can leak. Turn on multi-factor authentication (MFA) — at KNP, MFA would have stopped the guessed password from being enough.</p>
     `;
   });
 }

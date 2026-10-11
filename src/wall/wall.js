@@ -4,6 +4,7 @@
 
 import { items } from '../data/items.js';
 import { openModal } from '../modal/modal.js';
+import { isSolved, onSolved } from '../state/progress.js';
 
 /**
  * Initialise the wall: create a clickable/draggable element for
@@ -13,7 +14,7 @@ export function initWall() {
   const container = document.getElementById('wall-container');
 
   // Set wall background (public/ folder path, resolved by the browser)
-  container.style.backgroundImage = "url('/images/wall/Background.png')";
+  container.style.backgroundImage = "url('/images/wall/Background.webp')";
 
   items.forEach((item) => {
     const el = document.createElement('button');
@@ -39,8 +40,22 @@ export function initWall() {
     label.textContent = item.label;
     el.appendChild(label);
 
+    // Solved badge
+    const badge = document.createElement('span');
+    badge.className = 'wall-item-solved';
+    badge.textContent = '✓';
+    badge.setAttribute('aria-hidden', 'true');
+    el.appendChild(badge);
+    if (isSolved(item.id)) el.classList.add('wall-item--solved');
+
     // ── Drag behaviour ────────────────────────────────────
+    // A real drag (dragstart) suppresses the click that follows it.
+    // The old mousemove check also blocked normal clicks whenever
+    // the mouse moved a pixel while pressed.
+    let justDragged = false;
+
     el.addEventListener('dragstart', (e) => {
+      justDragged = true;
       e.dataTransfer.setData('text/plain', item.id);
       e.dataTransfer.effectAllowed = 'copy';
       el.classList.add('wall-item--dragging');
@@ -48,18 +63,26 @@ export function initWall() {
 
     el.addEventListener('dragend', () => {
       el.classList.remove('wall-item--dragging');
+      setTimeout(() => { justDragged = false; }, 0);
     });
 
-    // ── Click → open mini-game (only if not mid-drag) ─────
-    let wasDragging = false;
-
-    el.addEventListener('mousedown', () => { wasDragging = false; });
-    el.addEventListener('mousemove', () => { wasDragging = true; });
+    // ── Click → open mini-game ────────────────────────────
     el.addEventListener('click', (e) => {
-      if (wasDragging) { e.preventDefault(); return; }
+      if (justDragged) { e.preventDefault(); return; }
       openModal(item);
     });
 
     container.appendChild(el);
+  });
+
+  // Tick clues off as they're solved
+  onSolved((id) => {
+    if (id === null) {
+      container.querySelectorAll('.wall-item--solved')
+        .forEach((el) => el.classList.remove('wall-item--solved'));
+      return;
+    }
+    const el = container.querySelector(`.wall-item[data-id="${id}"]`);
+    if (el) el.classList.add('wall-item--solved');
   });
 }

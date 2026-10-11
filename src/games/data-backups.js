@@ -51,7 +51,7 @@ function makeCardId() {
 
 // ─── BUILD GAME ─────────────────────────────────────────────
 
-export function buildDataBackupsGame(container) {
+export function buildDataBackupsGame(container, item, complete = () => {}) {
   // Force fullscreen modal
   const box = document.getElementById('modal-box');
   box.classList.add('modal-fullscreen');
@@ -278,6 +278,7 @@ export function buildDataBackupsGame(container) {
   // ── End screen ───────────────────────────────────────────
 
   function showEndScreen() {
+    complete();
     container.innerHTML = `
       <div class="db-end-screen">
         <h2>🎉 All Files Recovered!</h2>

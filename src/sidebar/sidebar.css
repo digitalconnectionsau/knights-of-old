@@ -284,3 +284,111 @@
   opacity: 0.5;
   cursor: grabbing;
 }
+
+/* ── Card move buttons (touch-friendly reordering) ─────────── */
+.sidebar-card-moves {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.sidebar-card-move {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 9px;
+  line-height: 1;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.sidebar-card-move:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.sidebar-card-move:hover:not(:disabled) {
+  color: #fff;
+  border-color: rgba(0, 180, 255, 0.7);
+}
+
+/* ── Answer feedback ───────────────────────────────────────── */
+.sidebar-card--right {
+  border-color: rgba(31, 191, 106, 0.8) !important;
+  background: rgba(31, 191, 106, 0.12) !important;
+}
+
+.sidebar-card--wrong {
+  border-color: rgba(255, 80, 80, 0.8) !important;
+  background: rgba(255, 80, 80, 0.12) !important;
+}
+
+/* ── Footer: progress + close the case ─────────────────────── */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 14px 16px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-progress {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.sidebar-solve-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6b6b, #c0392b);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar-solve-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: default;
+}
+
+.sidebar-solve-hint {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+/* ── Debrief lists (rendered in the modal) ─────────────────── */
+#modal-content .case-steps {
+  margin: 0 0 14px 20px;
+  line-height: 1.6;
+}
+
+#modal-content .case-steps li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+  #sidebar { width: 85vw; transform: translateX(-85vw); }
+  #sidebar.sidebar--open ~ #sidebar-toggle { left: 85vw; }
+}
+
+.sidebar-reset-btn {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sidebar-reset-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

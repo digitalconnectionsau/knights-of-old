@@ -263,7 +263,7 @@ function fmtTime(s) {
 
 // ─── BUILD GAME ─────────────────────────────────────────────
 
-export function buildLocalNetworkGame(container) {
+export function buildLocalNetworkGame(container, item, complete = () => {}) {
   const box = document.getElementById('modal-box');
   box.classList.add('modal-fullscreen-wide');
 
@@ -707,6 +707,7 @@ export function buildLocalNetworkGame(container) {
 
   function showEndScreen() {
     cleanup();
+    complete();
     const word = solvedLetters.join('');
 
     container.innerHTML = `
@@ -745,4 +746,7 @@ export function buildLocalNetworkGame(container) {
   startTimer();
   loadRound(0);
   // scheduleQuestion();  // disabled for now
+
+  // Stop the timer as soon as the modal closes
+  return cleanup;
 }
